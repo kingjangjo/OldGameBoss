@@ -49,6 +49,9 @@ public class CheckHitBox : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, boxCollider.size * 0.6f);
+        if (boxCollider != null)
+        {
+            Gizmos.DrawWireCube(transform.position, boxCollider.size * 0.6f);
+        }
     }
 }

@@ -8,9 +8,6 @@ using UnityEngine.PlayerLoop;
 
 public class BossHealth : MonoBehaviour
 {
-    private delegate void OnBossDead();
-    private OnBossDead onBossDead;
-        
     public Slider healthSlider;
     public int maxHP = 100;
     private int _hp = 100;
@@ -27,7 +24,7 @@ public class BossHealth : MonoBehaviour
 
             if (_hp <= 0)
             {
-                onBossDead();
+                DelegateManager.instance.onBossDead();
             }
         }
     }

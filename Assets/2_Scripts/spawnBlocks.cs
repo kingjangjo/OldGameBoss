@@ -9,10 +9,12 @@ public class spawnBlocks : MonoBehaviour
     
     private List<float> rotations = new List<float>();
     private GameObject player;
+
+    private Coroutine spawnCoroutine;
     
     void Start()
     {
-        StartCoroutine(spawnBlock());
+        spawnCoroutine = StartCoroutine(spawnBlock());
     
         // 0, 90, 180, 270
         for (int i = 0; i < 4; i++)
@@ -21,6 +23,7 @@ public class spawnBlocks : MonoBehaviour
         }
         
         player = GameObject.FindWithTag("Player");
+        DelegateManager.instance.onBossDead += StopSpawn;
     }
 
     IEnumerator spawnBlock()
@@ -32,5 +35,10 @@ public class spawnBlocks : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 0, rotations[Random.Range(0, rotations.Count)]);
             Instantiate(blocks[Random.Range(0, blocks.Count)], pos, rotation);
         }
+    }
+
+    private void StopSpawn()
+    {
+        StopCoroutine(spawnCoroutine);
     }
 }

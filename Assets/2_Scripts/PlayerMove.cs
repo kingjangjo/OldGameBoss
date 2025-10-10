@@ -28,6 +28,9 @@ public class PlayerMove : MonoBehaviour
 
         speed = 3;
         maxJumpCount = 1;
+
+        DelegateManager.instance.onBossDead += StopMovingAttacking;
+        
     }
     
     void Update()
@@ -84,5 +87,11 @@ public class PlayerMove : MonoBehaviour
         
         // 움직이는 거
         rigid.velocity = new Vector2(inputX * speed, rigid.velocity.y);
+    }
+
+    private void StopMovingAttacking()
+    {
+        transform.GetComponent<PlayerMove>().enabled = false;
+        transform.GetChild(0).GetComponent<WeaponRotation>().enabled = false;
     }
 }
