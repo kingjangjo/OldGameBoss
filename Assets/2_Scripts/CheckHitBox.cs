@@ -34,7 +34,7 @@ public class CheckHitBox : MonoBehaviour
                 {
                     Debug.Log($"HitName : {hit.gameObject.name}, HitTag : {hit.tag}");
                     hitObject.HitObject();
-                    hitFlag = true;
+                    hitFlag = true;   
                 }
             }
         }

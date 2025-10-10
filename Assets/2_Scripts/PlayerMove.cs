@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed;
+    private float speed;
 
     private int jumpCount;
-    public int maxJumpCount;
+    private int maxJumpCount;
 
     private GameObject Weapon;
     
@@ -25,6 +25,9 @@ public class PlayerMove : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         Weapon = transform.GetChild(0).GetChild(0).gameObject;
         weaponSpriteRenderer = Weapon.GetComponent<SpriteRenderer>();
+
+        speed = 3;
+        maxJumpCount = 1;
     }
     
     void Update()

@@ -8,7 +8,11 @@ using UnityEngine.PlayerLoop;
 
 public class BossHealth : MonoBehaviour
 {
+    private delegate void OnBossDead();
+    private OnBossDead onBossDead;
+        
     public Slider healthSlider;
+    public int maxHP = 100;
     private int _hp = 100;
     
     // 확실하게 프로퍼티 쓰니까 좀 편하네
@@ -17,26 +21,38 @@ public class BossHealth : MonoBehaviour
         get => _hp;
         set
         {
-            _hp = value;
+            _hp = Mathf.Clamp(value, 0, maxHP);
             Debug.Log(_hp);
             UpdateHealthUI();
 
             if (_hp <= 0)
             {
-                // 보스 사망 함수
+                onBossDead();
             }
         }
     }
 
-    public void Start() {
-        HP = 100;
+    public void Start()
+    {
+        HP = maxHP;
+        healthSlider.maxValue = maxHP;
     }
     
-    public void UpdateHealthUI()
+    private void UpdateHealthUI()
     {
-        DOTween.To(() => healthSlider.value, 
-            x => healthSlider.value = x, 
-            _hp, 1f)
-            .SetEase(Ease.OutCubic);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(DOTween.To(() => healthSlider.value,
+                x => healthSlider.value = x,
+                _hp
+                , 1f)
+            .SetEase(Ease.OutCubic));
+        
+        sequence.OnComplete(() =>
+        {
+            if (healthSlider.value <= 0.01f)
+            {
+                healthSlider.fillRect.gameObject.SetActive(false);
+            }
+        });
     }
 }

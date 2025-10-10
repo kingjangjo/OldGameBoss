@@ -95,10 +95,4 @@ public class Block : MonoBehaviour, IHitObject
         sequence.OnComplete(() => Destroy(gameObject));
         boss.GetComponent<BossHealth>().HP -= 4;
     }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 0.35f);
-    }
 }
