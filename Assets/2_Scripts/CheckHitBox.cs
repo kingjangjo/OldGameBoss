@@ -29,11 +29,17 @@ public class CheckHitBox : MonoBehaviour
             {
                 // 인터페이스를 통한 블럭 구분
                 IHitObject hitObject = hit.GetComponent<IHitObject>();
+                Block hitBlock = hit.GetComponent<Block>();
                 
                 if (hitObject != null)
                 {
-                    Debug.Log($"HitName : {hit.gameObject.name}, HitTag : {hit.tag}");
                     hitObject.HitObject();
+
+                    if (hitBlock != null)
+                    {
+                        hitBlock.isThrown = true;
+                    }
+                    
                     hitFlag = true;   
                 }
             }

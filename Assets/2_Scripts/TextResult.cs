@@ -11,7 +11,9 @@ public class TextResult : MonoBehaviour
     void Start()
     {
         ResultText = GetComponent<TextMeshProUGUI>();
+        ResultText.text = "";
         DelegateManager.instance.onBossDead += WinResult;
+        DelegateManager.instance.onGameOver += LoseResult;
     }
     
     private void WinResult()

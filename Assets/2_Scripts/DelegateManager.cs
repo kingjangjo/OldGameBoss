@@ -8,6 +8,9 @@ public class DelegateManager : MonoBehaviour
 
     public delegate void OnBossDead();
     public OnBossDead onBossDead;
+
+    public delegate void OnGameOver();
+    public OnGameOver onGameOver;
     
     void Awake()
     {

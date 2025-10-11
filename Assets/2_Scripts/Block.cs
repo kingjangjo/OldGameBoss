@@ -17,16 +17,21 @@ public class Block : MonoBehaviour, IHitObject
     private BlockType blockType;
     private SpriteRenderer spriteRenderer;
     private GameObject boss;
-    
+
     private int currentBrokenCount;
     private int maxBrokenCount;
-    
+
+    public bool isThrown;
+
+    // 처음 시작시 떨어지는 블록 거르기
+    public bool ignoreLineCheck = true;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+
         int num = Random.Range(0, 10);
-        
+
         // 20% 확률로 공격 블럭
         if (num >= 8)
         {
@@ -38,7 +43,7 @@ public class Block : MonoBehaviour, IHitObject
         {
             blockType = BlockType.Normal;
         }
-        
+
         boss = GameObject.FindGameObjectWithTag("Boss");
         currentBrokenCount = 0;
         maxBrokenCount = 2;
@@ -50,6 +55,14 @@ public class Block : MonoBehaviour, IHitObject
         if (transform.position.y < -10)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Block") || collision.gameObject.CompareTag("AttackBlock"))
+        {
+            ignoreLineCheck = false;
         }
     }
     
@@ -89,6 +102,9 @@ public class Block : MonoBehaviour, IHitObject
     
     private void HitAttackBlock()
     {
+        PolygonCollider2D polyCollider = transform.GetComponent<PolygonCollider2D>();
+        polyCollider.isTrigger = true;
+        
         // 보스쪽으로 가서 공격하기 (펑)
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOMove(boss.transform.position, 0.35f, false));
