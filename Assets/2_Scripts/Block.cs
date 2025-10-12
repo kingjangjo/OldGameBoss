@@ -108,7 +108,7 @@ public class Block : MonoBehaviour, IHitObject
         // 보스쪽으로 가서 공격하기 (펑)
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOMove(boss.transform.position, 0.35f, false));
-        sequence.OnComplete(() => Destroy(gameObject));
-        boss.GetComponent<BossHealth>().HP -= 4;
+        sequence.AppendCallback(() => Destroy(gameObject));
+        sequence.OnComplete(() => boss.GetComponent<BossHealth>().HP -= 4);
     }
 }

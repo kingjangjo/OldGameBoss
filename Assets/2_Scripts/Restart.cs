@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
+    public void RestartButtonClicked()
+    {
+        SceneManager.LoadScene("RestartScene");
+    }
+    
     void Start()
     {
-        SceneManager.LoadScene("GamePlayScene");
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "RestartScene")
+        {
+            SceneManager.LoadScene("GamePlayScene");
+        }
     }
 }

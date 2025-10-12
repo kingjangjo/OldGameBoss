@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class spawnBlocks : MonoBehaviour
 {
@@ -14,8 +16,6 @@ public class spawnBlocks : MonoBehaviour
     
     void Start()
     {
-        spawnCoroutine = StartCoroutine(spawnBlock());
-    
         // 0, 90, 180, 270
         for (int i = 0; i < 4; i++)
         {
@@ -23,7 +23,21 @@ public class spawnBlocks : MonoBehaviour
         }
         
         player = GameObject.FindWithTag("Player");
-        DelegateManager.instance.onBossDead += StopSpawn;
+        DelegateManager.instance.onGameOver += StopSpawn;
+        DelegateManager.instance.onGameClear += StopSpawn;
+    }
+
+    void OnEnable()
+    {
+        spawnCoroutine = StartCoroutine(spawnBlock());
+        DelegateManager.instance.onGameOver += StopSpawn;
+        DelegateManager.instance.onGameClear += StopSpawn;
+    }
+
+    void OnDisable()
+    {
+        DelegateManager.instance.onGameOver -= StopSpawn;
+        DelegateManager.instance.onGameClear -= StopSpawn;
     }
 
     IEnumerator spawnBlock()
@@ -37,7 +51,7 @@ public class spawnBlocks : MonoBehaviour
         }
     }
 
-    private void StopSpawn()
+    void StopSpawn()
     {
         StopCoroutine(spawnCoroutine);
     }

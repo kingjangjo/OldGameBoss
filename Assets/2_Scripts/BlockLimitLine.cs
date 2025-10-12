@@ -10,23 +10,14 @@ public class BlockLimitLine : MonoBehaviour
         
         if (block != null)
         {
-            Debug.Log($"{block.name} : {block.isThrown} & {block.ignoreLineCheck}");
+            // Debug.Log($"{block.name} : {block.isThrown} & {block.ignoreLineCheck}");
             // 망치 맞은 블록 무시
             if(block.isThrown) return;
             
             // 생성된 블록 무시
             if(block.ignoreLineCheck) return;
             
-            // 게임 종료
-            EndGame();
+            DelegateManager.instance.onGameOver();
         }
     }
-
-    private void EndGame()
-    {
-        DelegateManager.instance.onGameOver();   
-        // 종료 예)
-        Time.timeScale = 0;
-    }
-    
 }

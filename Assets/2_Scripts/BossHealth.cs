@@ -24,7 +24,7 @@ public class BossHealth : MonoBehaviour
 
             if (_hp <= 0)
             {
-                DelegateManager.instance.onBossDead();
+                DelegateManager.instance.onGameClear();
             }
         }
     }

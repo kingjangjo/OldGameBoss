@@ -28,9 +28,21 @@ public class PlayerMove : MonoBehaviour
 
         speed = 3;
         maxJumpCount = 1;
-
-        DelegateManager.instance.onBossDead += StopMovingAttacking;
         
+        DelegateManager.instance.onGameOver += StopPlayerMove;
+        DelegateManager.instance.onGameClear += StopPlayerMove;
+    }
+
+    void OnEnable()
+    {
+        DelegateManager.instance.onGameOver += StopPlayerMove;
+        DelegateManager.instance.onGameClear += StopPlayerMove;
+    }
+
+    void OnDisable()
+    {
+        DelegateManager.instance.onGameOver -= StopPlayerMove;
+        DelegateManager.instance.onGameClear -= StopPlayerMove;
     }
     
     void Update()
@@ -89,7 +101,7 @@ public class PlayerMove : MonoBehaviour
         rigid.velocity = new Vector2(inputX * speed, rigid.velocity.y);
     }
 
-    private void StopMovingAttacking()
+    void StopPlayerMove()
     {
         transform.GetComponent<PlayerMove>().enabled = false;
         transform.GetChild(0).GetComponent<WeaponRotation>().enabled = false;
