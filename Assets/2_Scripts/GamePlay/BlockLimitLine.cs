@@ -19,8 +19,9 @@ public class BlockLimitLine : MonoBehaviour
 
             if (!GameManager.instance.EndFlag)
             {
-                DelegateManager.instance.onGameOver();
                 GameManager.instance.EndFlag = true;
+                GameManager.instance.isGameOver = true;
+                DelegateManager.instance.onGameOver();
             }
         }
     }

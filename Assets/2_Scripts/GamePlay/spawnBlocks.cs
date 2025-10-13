@@ -24,20 +24,16 @@ public class spawnBlocks : MonoBehaviour
         }
         
         player = GameObject.FindWithTag("Player");
-        DelegateManager.instance.onGameOver += StopSpawn;
-        DelegateManager.instance.onGameClear += StopSpawn;
-    }
-
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        spawnCoroutine = StartCoroutine(spawnBlock());
+        Debug.Log($"START COROUTINE : {spawnCoroutine}");
+        
         DelegateManager.instance.onGameOver += StopSpawn;
         DelegateManager.instance.onGameClear += StopSpawn;
     }
 
     void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
         DelegateManager.instance.onGameOver -= StopSpawn;
         DelegateManager.instance.onGameClear -= StopSpawn;
     }
@@ -56,10 +52,7 @@ public class spawnBlocks : MonoBehaviour
     void StopSpawn()
     {
         StopCoroutine(spawnCoroutine);
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        spawnCoroutine = StartCoroutine(spawnBlock());
+        spawnCoroutine = null;
+        Debug.Log($"STOP COROUTINE : {spawnCoroutine}");
     }
 }

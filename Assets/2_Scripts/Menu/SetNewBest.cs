@@ -9,9 +9,9 @@ public class SetNewBest : MonoBehaviour
 {
     private TMP_Text RecordText;
 
-    void Start()
+    void Awake()
     {
-        RecordText = GetComponent<TMP_Text>();
+        RecordText = GetComponent<TextMeshProUGUI>();
         RecordText.color = new Color(1, 205 / 255f, 0);
     }
 
@@ -27,19 +27,23 @@ public class SetNewBest : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (PlayerPrefs.HasKey("RECORD"))
+        Debug.Log($"isGameOver : {GameManager.instance.isGameOver}");
+        if (!GameManager.instance.isGameOver)
         {
-            float Record = PlayerPrefs.GetFloat("RECORD");
+            if (PlayerPrefs.HasKey("RECORD"))
+            {
+                float Record = PlayerPrefs.GetFloat("RECORD");
             
-            TimeSpan t = TimeSpan.FromSeconds(Record);
-            RecordText.text = string.Format("{0:00}:{1:00}.{2:00}",
-                Mathf.FloorToInt((float)t.TotalMinutes),
-                t.Seconds,
-                t.Milliseconds / 10);
-        }
-        else
-        {
-            RecordText.text = "No Record!";
-        }
+                TimeSpan t = TimeSpan.FromSeconds(Record);
+                RecordText.text = string.Format("{0:00}:{1:00}.{2:00}",
+                    Mathf.FloorToInt((float)t.TotalMinutes),
+                    t.Seconds,
+                    t.Milliseconds / 10);
+            }
+            else
+            {
+                RecordText.text = "No Record";
+            }
+        }   
     }
 }

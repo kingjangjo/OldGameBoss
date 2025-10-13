@@ -5,7 +5,7 @@ using UnityEngine;
 public class DelegateManager : MonoBehaviour
 {
     public static DelegateManager instance;
-
+    
     public delegate void OnGameClear();
     public OnGameClear onGameClear;
 

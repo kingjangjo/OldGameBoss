@@ -52,7 +52,22 @@ public class MenuSwitch : MonoBehaviour
             t.Seconds,               
             t.Milliseconds / 10);
 
-        if (GameManager.instance.isNewBest)
+        if (PlayerPrefs.HasKey("RECORD"))
+        {
+            float OldRecord = PlayerPrefs.GetFloat("RECORD");
+            Debug.Log(OldRecord);
+        
+            if (OldRecord > GameManager.instance.timer)
+            {
+                RecordText.color = new Color(1, 205 / 255f, 0);
+                PlayerPrefs.SetFloat("RECORD", GameManager.instance.timer);
+            }
+            else
+            {
+                RecordText.color = Color.white;
+            }
+        }
+        else
         {
             RecordText.color = new Color(1, 205 / 255f, 0);
         }

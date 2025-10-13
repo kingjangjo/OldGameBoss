@@ -18,12 +18,6 @@ public class Timer : MonoBehaviour
         DelegateManager.instance.onGameOver += StopTimer;
     }
 
-    void OnEnable()
-    {
-        DelegateManager.instance.onGameClear += StopTimer;
-        DelegateManager.instance.onGameOver += StopTimer;
-    }
-
     void OnDisable()
     {
         DelegateManager.instance.onGameClear -= StopTimer;
@@ -48,19 +42,21 @@ public class Timer : MonoBehaviour
     {
         isGoing = false;
 
-        if (PlayerPrefs.HasKey("RECORD"))
+        if (!GameManager.instance.isGameOver)
         {
-            float OldNewBest = PlayerPrefs.GetFloat("RECORD");
+            if (PlayerPrefs.HasKey("RECORD"))
+            {
+                float OldNewBest = PlayerPrefs.GetFloat("RECORD");
 
-            if (OldNewBest > GameManager.instance.timer)
+                if (OldNewBest > GameManager.instance.timer)
+                {
+                    PlayerPrefs.SetFloat("RECORD", GameManager.instance.timer);
+                }
+            }
+            else
             {
                 PlayerPrefs.SetFloat("RECORD", GameManager.instance.timer);
-                GameManager.instance.isNewBest = true;
             }
-        }
-        else {
-            PlayerPrefs.SetFloat("RECORD", GameManager.instance.timer);
-            GameManager.instance.isNewBest = true;
         }
     }
 }

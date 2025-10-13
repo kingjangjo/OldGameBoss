@@ -32,13 +32,7 @@ public class PlayerMove : MonoBehaviour
         DelegateManager.instance.onGameOver += StopPlayerMove;
         DelegateManager.instance.onGameClear += StopPlayerMove;
     }
-
-    void OnEnable()
-    {
-        DelegateManager.instance.onGameOver += StopPlayerMove;
-        DelegateManager.instance.onGameClear += StopPlayerMove;
-    }
-
+    
     void OnDisable()
     {
         DelegateManager.instance.onGameOver -= StopPlayerMove;
