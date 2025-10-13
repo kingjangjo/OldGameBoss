@@ -47,5 +47,20 @@ public class Timer : MonoBehaviour
     private void StopTimer()
     {
         isGoing = false;
+
+        if (PlayerPrefs.HasKey("RECORD"))
+        {
+            float OldNewBest = PlayerPrefs.GetFloat("RECORD");
+
+            if (OldNewBest > GameManager.instance.timer)
+            {
+                PlayerPrefs.SetFloat("RECORD", GameManager.instance.timer);
+                GameManager.instance.isNewBest = true;
+            }
+        }
+        else {
+            PlayerPrefs.SetFloat("RECORD", GameManager.instance.timer);
+            GameManager.instance.isNewBest = true;
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class spawnBlocks : MonoBehaviour
@@ -29,13 +30,14 @@ public class spawnBlocks : MonoBehaviour
 
     void OnEnable()
     {
-        spawnCoroutine = StartCoroutine(spawnBlock());
+        SceneManager.sceneLoaded += OnSceneLoaded;
         DelegateManager.instance.onGameOver += StopSpawn;
         DelegateManager.instance.onGameClear += StopSpawn;
     }
 
     void OnDisable()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         DelegateManager.instance.onGameOver -= StopSpawn;
         DelegateManager.instance.onGameClear -= StopSpawn;
     }
@@ -54,5 +56,10 @@ public class spawnBlocks : MonoBehaviour
     void StopSpawn()
     {
         StopCoroutine(spawnCoroutine);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        spawnCoroutine = StartCoroutine(spawnBlock());
     }
 }

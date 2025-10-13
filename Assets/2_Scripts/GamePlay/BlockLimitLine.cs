@@ -16,8 +16,12 @@ public class BlockLimitLine : MonoBehaviour
             
             // 생성된 블록 무시
             if(block.ignoreLineCheck) return;
-            
-            DelegateManager.instance.onGameOver();
+
+            if (!GameManager.instance.EndFlag)
+            {
+                DelegateManager.instance.onGameOver();
+                GameManager.instance.EndFlag = true;
+            }
         }
     }
 }

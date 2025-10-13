@@ -24,7 +24,11 @@ public class BossHealth : MonoBehaviour
 
             if (_hp <= 0)
             {
-                DelegateManager.instance.onGameClear();
+                if (!GameManager.instance.EndFlag)
+                {
+                    DelegateManager.instance.onGameClear();
+                    GameManager.instance.EndFlag = true;
+                }
             }
         }
     }

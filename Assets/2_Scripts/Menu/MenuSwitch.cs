@@ -51,6 +51,11 @@ public class MenuSwitch : MonoBehaviour
             Mathf.FloorToInt((float)t.TotalMinutes),
             t.Seconds,               
             t.Milliseconds / 10);
+
+        if (GameManager.instance.isNewBest)
+        {
+            RecordText.color = new Color(1, 205 / 255f, 0);
+        }
     }
 
     void LoseResult()

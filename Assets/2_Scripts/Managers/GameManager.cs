@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float timer;
+    public bool isNewBest;
+    public bool EndFlag;
     
     void Awake()
     {
@@ -34,5 +36,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         timer = 0;
+        isNewBest = false;
+        EndFlag = false;
     }
 }
