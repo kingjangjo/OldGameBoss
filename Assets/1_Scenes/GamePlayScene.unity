@@ -611,7 +611,7 @@ MonoBehaviour:
   - {fileID: 5232845393093692350, guid: 2f757277d57c04588a4d8699cd6f62da, type: 3}
   - {fileID: 5663414854843045948, guid: 0d0b872a8a95e40648b4d3e22281433e, type: 3}
   - {fileID: 1576053315123340099, guid: 1e3fced5e67624edcaf2514252073979, type: 3}
-  waitTime: 2
+  waitTime: 1.8
 --- !u!4 &283107901
 Transform:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 974835987}
-  maxHP: 10
+  maxHP: 60
 --- !u!1 &320827842
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,8 +851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  isNewBest: 0
   EndFlag: 0
+  isGameOver: 0
 --- !u!4 &456447752
 Transform:
   m_ObjectHideFlags: 0
