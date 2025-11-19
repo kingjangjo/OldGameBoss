@@ -23,6 +23,8 @@ public class Block : MonoBehaviour, IHitObject
 
     public bool isThrown;
 
+    public GameObject destroyEffect;
+
     // 처음 시작시 떨어지는 블록 거르기
     public bool ignoreLineCheck = true;
 
@@ -96,6 +98,8 @@ public class Block : MonoBehaviour, IHitObject
         if (currentBrokenCount == maxBrokenCount)
         {
             // 펑
+            var eff = Instantiate(destroyEffect, this.transform.position, Quaternion.identity);
+            Destroy(eff, 0.5f);
             Destroy(gameObject);
         }
     }
@@ -109,6 +113,6 @@ public class Block : MonoBehaviour, IHitObject
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOMove(boss.transform.position, 0.35f, false));
         sequence.AppendCallback(() => Destroy(gameObject));
-        sequence.OnComplete(() => boss.GetComponent<BossHealth>().HP -= 4);
+        sequence.OnComplete(() => boss.GetComponent<BossHealth>().HP += 4);
     }
 }

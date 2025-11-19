@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isThrown: 0
+  destroyEffect: {fileID: 271054424957760564, guid: 1468eeb0963ddad41909c04ad8af0aee, type: 3}
   ignoreLineCheck: 1
 --- !u!50 &-3467711308135175223
 Rigidbody2D:

@@ -7,10 +7,14 @@ public class CheckHitBox : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
     private bool hitFlag = false;
+    public AudioSource audio;
+
+    public GameObject hitEffect;
     
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        audio = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -34,6 +38,11 @@ public class CheckHitBox : MonoBehaviour
                 if (hitObject != null)
                 {
                     hitObject.HitObject();
+
+                    audio.Play();
+
+                    var eff = Instantiate(hitEffect, this.transform.position, Quaternion.identity);
+                    Destroy(eff, 0.5f);
 
                     if (hitBlock != null)
                     {

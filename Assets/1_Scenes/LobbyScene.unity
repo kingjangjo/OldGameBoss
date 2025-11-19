@@ -134,6 +134,9 @@ GameObject:
   - component: {fileID: 125401686}
   - component: {fileID: 125401685}
   - component: {fileID: 125401684}
+  - component: {fileID: 125401689}
+  - component: {fileID: 125401688}
+  - component: {fileID: 125401687}
   m_Layer: 5
   m_Name: DeleteKeyButton
   m_TagString: Untagged
@@ -267,6 +270,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125401682}
   m_CullTransparentMesh: 1
+--- !u!114 &125401687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125401682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cdadb9faac8e8459694edfa8b0728d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 125401683}
+--- !u!114 &125401688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125401682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 125401687}
+          m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
+          m_MethodName: pointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 125401687}
+          m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
+          m_MethodName: pointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &125401689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125401682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6434dd00c7f484455ba0981c9c664f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &262457152
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +352,9 @@ GameObject:
   - component: {fileID: 262457156}
   - component: {fileID: 262457155}
   - component: {fileID: 262457154}
+  - component: {fileID: 262457159}
+  - component: {fileID: 262457158}
+  - component: {fileID: 262457157}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -401,6 +477,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262457152}
   m_CullTransparentMesh: 1
+--- !u!114 &262457157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262457152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cdadb9faac8e8459694edfa8b0728d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 262457153}
+--- !u!114 &262457158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262457152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 262457157}
+          m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
+          m_MethodName: pointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 262457157}
+          m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
+          m_MethodName: pointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &262457159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262457152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6434dd00c7f484455ba0981c9c664f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326132431
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,9 +886,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TETRIS
+  m_text: 'MESSUP
 
-    boss'
+    TETRIS
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: badde3817d0e54967a6b758fa3fcf538, type: 2}
   m_sharedMaterial: {fileID: -3287438112430623330, guid: badde3817d0e54967a6b758fa3fcf538, type: 2}
@@ -986,11 +1134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7316857173463032709, guid: b73f13c6c6cc14acba59da96fa316c63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.08
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7316857173463032709, guid: b73f13c6c6cc14acba59da96fa316c63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.64
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 7316857173463032709, guid: b73f13c6c6cc14acba59da96fa316c63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1542,11 +1690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5188020353515481103, guid: a3740609fa75a447c861466b007d9804, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.57
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 5188020353515481103, guid: a3740609fa75a447c861466b007d9804, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.24
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 5188020353515481103, guid: a3740609fa75a447c861466b007d9804, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1880,6 +2028,8 @@ GameObject:
   - component: {fileID: 2072391796}
   - component: {fileID: 2072391795}
   - component: {fileID: 2072391794}
+  - component: {fileID: 2072391797}
+  - component: {fileID: 2072391798}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2001,6 +2151,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072391792}
   m_CullTransparentMesh: 1
+--- !u!114 &2072391797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072391792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2072391798}
+          m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
+          m_MethodName: pointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2072391798}
+          m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
+          m_MethodName: pointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2072391798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072391792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cdadb9faac8e8459694edfa8b0728d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 2072391793}
 --- !u!1 &2132590640
 GameObject:
   m_ObjectHideFlags: 0

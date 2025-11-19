@@ -75,7 +75,7 @@ public class PlayerMove : MonoBehaviour
         float inputX = Input.GetAxisRaw("Horizontal");
         
         // 왼쪽으로 움직이면
-        if (inputX < 0 && WeaponManager.instance.CanAttack)
+        if (inputX < 0)//inputX < 0 && WeaponManager.instance.CanAttack
         {
             spriteRenderer.flipX = true;
             weaponSpriteRenderer.flipX = true;
@@ -83,7 +83,7 @@ public class PlayerMove : MonoBehaviour
         }
         
         // 오른쪽으로 움직이면
-        else if (inputX > 0 && WeaponManager.instance.CanAttack)
+        else if (inputX > 0)//inputX > 0 && WeaponManager.instance.CanAttack
         {
             spriteRenderer.flipX = false;
             weaponSpriteRenderer.flipX = false;

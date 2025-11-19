@@ -14,7 +14,7 @@ public class WeaponRotation : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && WeaponManager.instance.CanAttack)
+        if (WeaponManager.instance.CanAttack)
         {
             WeaponAnimation();
         }
@@ -38,5 +38,12 @@ public class WeaponRotation : MonoBehaviour
         sequence.AppendCallback(() => WeaponManager.instance.IsAttacking = false);
         sequence.Append(transform.DORotate(currentRotation.eulerAngles, 0.4f));
         sequence.OnComplete(() => WeaponManager.instance.CanAttack = true);
+        //sequence.AppendCallback(() => WeaponManager.instance.CanAttack = false);
+        //sequence.Append(transform.DORotate(readyRotation.eulerAngles, 0.3f));
+        //sequence.AppendCallback(() => WeaponManager.instance.IsAttacking = true);
+        //sequence.Append(transform.DORotate(targetRotation.eulerAngles, 0.2f));
+        //sequence.AppendCallback(() => WeaponManager.instance.IsAttacking = false);
+        //sequence.Append(transform.DORotate(currentRotation.eulerAngles, 0.3f));
+        //sequence.OnComplete(() => WeaponManager.instance.CanAttack = true);
     }
 }
