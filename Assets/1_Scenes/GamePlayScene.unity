@@ -801,6 +801,8 @@ MonoBehaviour:
   - {fileID: 5663414854843045948, guid: 0d0b872a8a95e40648b4d3e22281433e, type: 3}
   - {fileID: 1576053315123340099, guid: 1e3fced5e67624edcaf2514252073979, type: 3}
   waitTime: 1.8
+  leftWall: {fileID: 2086437003}
+  rightWall: {fileID: 850320254}
 --- !u!4 &283107901
 Transform:
   m_ObjectHideFlags: 0

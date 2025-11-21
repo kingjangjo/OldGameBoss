@@ -13,6 +13,9 @@ public class spawnBlocks : MonoBehaviour
     private List<float> rotations = new List<float>();
     private GameObject player;
 
+    public GameObject leftWall;
+    public GameObject rightWall;
+
     private Coroutine spawnCoroutine;
     
     void Start()
@@ -43,7 +46,7 @@ public class spawnBlocks : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            Vector2 pos = new Vector2(Mathf.Clamp(player.transform.position.x, -3.8f, 3.8f), transform.position.y);
+            Vector2 pos = new Vector2(Mathf.Clamp(player.transform.position.x, leftWall.transform.position.x+1.1f, rightWall.transform.position.x-1.15f), transform.position.y);
             Quaternion rotation = Quaternion.Euler(0, 0, rotations[Random.Range(0, rotations.Count)]);
             Instantiate(blocks[Random.Range(0, blocks.Count)], pos, rotation);
         }
